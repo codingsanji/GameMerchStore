@@ -1,0 +1,130 @@
+/**FONTS**/
+@font-face {
+  font-family: Horror;
+  src: url(../Fonts/Special_Elite/SpecialElite-Regular.ttf);
+}
+@font-face{
+  font-family: Economica;
+  src: url(../Fonts/Economica/Economica-Regular.ttf);
+}
+@font-face{
+  font-family: PhasmoMain;
+  src: url(../Fonts/October_Crow/october-crow.ttf);
+}
+@font-face {
+  font-family: Book;
+  src: url(../Fonts/lazy_dog/lazy_dog.ttf);
+}
+
+/**MAIN PARTS**/
+body{
+    background-color:#0b101a;
+    font-size: large;
+}
+table{
+    columns: 5;
+    border-collapse: separate;
+    left: -10px;
+    width: 1450px ;
+}
+tr{
+  background-color: #000101;
+  border-radius: 1px;
+  border-color: #aabee3;
+  font-family:Horror;
+  height: 30px;
+}
+th{
+    color: #aabee3;
+    border-spacing: 5px;
+    padding-left: -25px;
+    width: 20%;
+    text-align: center;
+}
+th:hover{
+  background-color: #131b2b;
+}
+iframe{
+  width:800px ; 
+  height:500px ;
+  margin-left: 550px;
+  margin-top: 120px;
+  position: relative;
+}
+
+
+/**SUB-HEAD**/
+.MainPic{
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.TextInMiddle{
+  position: absolute;
+  top: 235px;
+  left: 230px;
+  right: 350px;
+}
+.TextOnPic{
+  position: absolute;
+  top: 750px;
+  left: 30px;
+  right: 350px;
+  
+}
+.Objective{
+  font-family: Economica;
+  font-size: 25px;;
+  color: #aabee3;
+  margin-top: 15px;
+  text-align: left;
+  height: 470px;
+  padding-top: 5px;
+  padding-left: 20px;
+  padding-right: 500px;
+  padding-bottom: 5px;
+}
+.BelowIntro{
+  color: #aabee3;
+  width: 1390px;
+  font-size: xx-large;
+  font-family: PhasmoMain;
+  padding-top: 40px;
+  text-align: center;
+}
+.NextStep{
+  position: relative;
+  width: 100%;
+}
+.image{
+  transition: .5s ease;
+  height: 300px;
+  width: 250px; 
+  opacity: 1;
+  backface-visibility: hidden;
+}
+.Mid{
+  transition: .5s ease;
+  opacity: 1 ;
+  position: absolute;
+  text-align: center;
+}
+.NextStep img:hover{
+  border: 5px solid #131b2b;
+  opacity: 0.3;
+}
+.Mid a{
+  font-size:25px;
+  font-family: horror;
+  text-decoration: none;
+  color: white;
+  top: 310px;
+}
+.credits{
+  color: #aabee3;
+  text-align: center;
+  margin-left: 300px;
+  margin-top: -50px;
+}
+
+
