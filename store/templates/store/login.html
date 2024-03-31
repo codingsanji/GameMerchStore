@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta lang="en">
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    <title>Log In</title>
+    <link rel="stylesheet" href= "{% static 'css/stylesheet4.css' %}" type="text/css">
+</head>
+
+<style>
+/**FONTS**/
+@font-face {
+    font-family: Horror;
+    src: url("{% static '../Fonts/Special_Elite/SpecialElite-Regular.ttf' %}");
+}
+@font-face{
+    font-family: Economica;
+    src: url("{% static '../Fonts/Economica/Economica-Regular.ttf' %}");
+}
+@font-face {
+    font-family: PhasmoMain;
+    src: url("{% static '../Fonts/October_Crow/october-crow.ttf' %}")
+}
+@font-face {
+    font-family: Book;
+    src: url("{% static '../Fonts/lazy_dog/lazy_dog.ttf' %}")
+}
+</style>
+
+<body style="background-image: url('{% static "images/home/Ino.gif"%}')";>
+
+  <div class="wrapper">
+        <label class="whole">
+         
+           <div class="card">
+              <div class="front" style="top:155px; width: 350px; height: 350px; margin-left: 100px;">
+                  <h1>LOG IN</h1>
+
+                 <form class="form" action="" method="POST">
+                  {% csrf_token %}
+                    <input class="input" name="username" type="text" placeholder="Name" required >
+                    <input class="input" name="password" type="password" placeholder="Password" required >
+                    <a style="padding-bottom: 10px; padding-top: 7px; text-decoration: none; color: aliceblue; font-size: small;" href="/">Don't have an account? Sign up!</a>
+                    <button class="button">Login</button>
+
+                    <style>
+                        .button:hover {
+                            background-color: #6d4caf;}
+                    </style>
+                    
+                 </form>
+
+              </div>
+
+           </div>
+        </label>
+    </div>   
+</div>
+
+</body>
+</html>

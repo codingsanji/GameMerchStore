@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+{% load static %}<!--to load pics and css from static folder-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+        <title>Shop</title>
+        <link rel="stylesheet" type="text/css" href= "{% static 'css/style2.css' %}" >
+    </head>
+
+    <style>
+        @font-face {
+            font-family: Btn;
+            src: url("{% static '../Fonts/Nova_Square/NovaSquare-Regular.ttf' %}")
+        }
+        @font-face {
+            font-family: Topp;
+            src: url("{% static '../Fonts/Silkscreen/Silkscreen/Silkscreen-Regular.ttf' %}")
+        }
+        @font-face {    
+            font-family: Bam;
+            src: url("{% static '../Fonts/Black_Han_Sans/BlackHanSans-Regular.ttf' %}")
+        }
+        @font-face {
+            font-family: Bruh;
+            src: url("{% static '../Fonts/Glass_Antiqua/GlassAntiqua-Regular.ttf' %}")
+        }
+        @font-face {
+            font-family: Phasmo;
+            src: url("{% static '../Fonts/October_Crow/october-crow.ttf' %}")
+        }
+        @font-face {
+            font-family: Valo;
+            src: url("{% static '../Fonts/valorant/Valorant\ Font.ttf' %}")
+        }
+    </style>
+
+    <body style="font-family: Topp;">
+    <!--NAVIGATION BAR-->
+    <header>
+        <div class="logo" style="margin-left: 10px; margin-right: -250px;" onclick="window.location.href='index.html'">Webbing</div>
+        <nav>
+          <ul>
+            <li><a href="{% url 'main'%}">Home</a></li>
+            <li><a href="#games">Games</a></li>
+            <li><a href="{% url 'store'%}">Products</a></li>
+            <li><a href="#footer">Contact us</a></li>
+          </ul>
+        </nav>
+        <div class="btns" style="margin-right: 5px;">
+
+          <button id="loginBtn" style="background-color: #050115;position: absolute; margin-left: -130px;font-family: Topp;  "><a href="{% url 'signin'%}" style="text-decoration: none; text-align: center; margin-inline-start: -50px; color:#ffffff ; " >Sign out </a></button>
+          
+        <div class="icon-cart">
+          <img id="showPopupBtn" src="{% static 'images\home\cart.png' %}" style="width: 30px; height: 30px; position: absolute;margin-left: -5px;">
+        </div>
+          <!-- The Pop-up -->
+          <div class="cartTab">
+            <h1>Shopping Cart</h1>
+            <div class="listCart">
+
+              <section id="cart">
+                <ul id="cart-items"></ul>
+                <p>Total: <span id="cart-total">$0.00</span></p>
+            </section>
+
+            </div>
+            <div class="btn">
+                <button class="close">CLOSE</button>
+                <button class="checkOut" style="font-family: Bam;">Check Out</button>
+            </div>
+        </div>
+          <style>
+            .cartTab{
+              width: 400px;
+              background-color: #353432;
+              color: #eee;
+              position: fixed;
+              top: 0;
+              right: -400px;
+              bottom: 0;
+              display: grid;
+              grid-template-rows: 70px 1fr 70px;
+              transition: .5s;
+            }
+            body.showCart .cartTab{
+                right: 0;
+            }
+            body.showCart .container{
+                transform: translateX(-250px);
+            }
+            .cartTab h1{
+                padding: 20px;
+                margin: 0;
+                font-weight: 300;
+            }
+            .cartTab .btn{
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .cartTab button{
+                background-color: #E8BC0E;
+                margin-right: 40px;
+                color: #000000;
+                height: 50px;
+                border: none;
+                font-family: Poppins;
+                font-weight: 500;
+                cursor: pointer;
+            }
+            .cartTab .close{
+                font-family: Bam;
+                background-color: #eee;
+                height: 50px;
+            }
+            
+          </style>
+
+          <script>
+            let body = document.querySelector('body');
+            let iconCart = document.querySelector('.icon-cart');
+            let closeCart = document.querySelector('.close');
+
+            iconCart.addEventListener('click', () => {
+                body.classList.toggle('showCart');
+            })
+            closeCart.addEventListener('click', () => {
+                body.classList.toggle('showCart');
+            })
+            const cartItemsList = document.getElementById('cart-items');
+            const cartTotalSpan = document.getElementById('cart-total');
+
+            function addToCart(button) {
+                const productElement = button.closest('.product');
+                const productId = productElement.dataset.id;
+                const productName = productElement.dataset.name;
+                const productPrice = parseFloat(productElement.dataset.price);
+
+            // Add the product to the cart
+            const listItem = document.createElement('li');
+            listItem.textContent = `${productName} - ${productPrice}`;
+            cartItemsList.appendChild(listItem);
+
+            // Update the total
+            updateTotal(productPrice);
+            }
+
+          function updateTotal(price) {
+              const currentTotal = parseFloat(cartTotalSpan.textContent.replace('$', ''));
+              const newTotal = currentTotal + price;
+              cartTotalSpan.textContent = `$${newTotal.toFixed(2)}`;
+          }
+           </script>
+
+          <body class="dark-mode">
+            <button class="toggle-container" onclick="toggleMode()">
+              <div class="toggle-slider"></div>
+            </button>
+          </button>
+        </div>
+    </header>
+
+    <!--HEADING-->
+    <section id="head">
+        <img src="{% static 'images\home\shopeee.jpg'  %}">
+        <h2 style="font-family: Bam;">PRODUCTS</h2>
+        <p style="font-family: Arial, Helvetica, sans-serif;">Featuring Our Latest And Hottest Collections</p>
+    </section>
+
+    <!--PRODUCTS-->
+    <section id="one">
+        <div class="product-container">
+          <div class="product">
+
+            <article class="product" data-id="1" data-name="Tarot Card Themed Uno Cards" data-price="13.50">
+              <div class="uno">
+                <img src="{% static 'images\phasmoproducts\uno.jpg'  %}" alt="Product1">
+                <h5 style="font-family: Arial, Helvetica, sans-serif;">Phasmophobia</h5>
+                <div class="description">
+                  <h4>Tarot Card Themed Uno Cards</h4>
+                  <h4 style="margin-top: -20px; font-family: Arial, Helvetica, sans-serif; " class="price">$13.50 <button onclick="addToCart(this)" >&#128722</button></h4>
+                </div>
+              </div>
+            </article>
+
+            <article class="product" data-id="2" data-name="UV hand-print mug" data-price="21.00">  
+              <div class="uno">
+                <img src="{% static 'images\phasmoproducts\memug.jpg'%}" alt="Product3">
+                <h5 style="font-family: Arial, Helvetica, sans-serif;">Phasmophobia</h5>
+                <div class="description">
+                  <h4>UV hand-print mug</h4>
+                  <h4 style="margin-top: -20px; font-family: Arial, Helvetica, sans-serif; " class="price">$21.00 <button onclick="addToCart(this)">&#128722</button></h4>
+                </div>
+              </div>
+            </article>
+
+            <article class="product" data-id="3" data-name="Voodoo Doll PLushy" data-price="18.50">
+              <div class="uno" >
+                <img src="{% static 'images\phasmoproducts\voodooboo.jpg'%}" alt="Product4">
+                <h5 style="font-family: Arial, Helvetica, sans-serif;">Phasmophobia</h5>
+                <div class="description">
+                    <h4>Voodoo Doll PLushy</h4>
+                    <h4 style="margin-top: -20px; font-family: Arial, Helvetica, sans-serif; " class="price">$18.50 <button onclick="addToCart(this)">&#128722</button></h4>
+                </div>
+              </div>
+            </article>
+
+            <article class="product" data-id="4" data-name="Ghost-Orb Hunting T-shirt" data-price="9.00">
+              <div class="uno">
+                  <img src="{% static 'images\phasmoproducts\lies.jpg' %}" alt="Product6">
+                  <h5 style="font-family: Arial, Helvetica, sans-serif;">Phasmophobia</h5>
+                  <div class="description">
+                    <h4> Ghost-Orb Hunting T-shirt</h4>
+                    <h4 style="margin-top: -20px; font-family: Arial, Helvetica, sans-serif; " class="price">$9.00 <button onclick="addToCart(this)">&#128722</button></h4>
+                  </div>
+              </div>
+            </article>
+
+            <article class="product" data-id="5" data-name="Catch Me on Phasmo T-shirt" data-price="9.00">
+              <div class="uno">
+                <img src="{% static  'images\phasmoproducts\catchtee.jpg' %}" alt="Product7">
+                <h5 style="font-family: Arial, Helvetica, sans-serif;">Phasmophobia</h5>
+                <div class="description">
+                  <h4>Catch Me on Phasmo T-shirt</h4>
+                  <h4 style="margin-top: -20px; font-family: Arial, Helvetica, sans-serif; " class="price">$9.00 <button onclick="addToCart(this)">&#128722</button></h4>
+                </div>
+              </div>
+            </article>
+            
+            <article class="product" data-id="6" data-name="Tarot Cards Hoodie" data-price="18.50">
+              <div class="uno">
+                <img src="{% static 'images\phasmoproducts\cardhood.jpg' %}" alt="Product8">
+                <h5 style="font-family: Arial, Helvetica, sans-serif;">Phasmophobia</h5>
+                <div class="description">
+                  <h4>Tarot Cards Hoodie</h4>
+                  <h4 style="margin-top: -20px; font-family: Arial, Helvetica, sans-serif; " class="price">$18.50 <button onclick="addToCart(this)">&#128722</button></h4>
+                </div>
+              </div>
+            </article>
+
+            <article class="product" data-id="7" data-name="Tarot Cards Crop-Hoodie" data-price="20.00">
+              <div class="uno">
+                <img src="{% static 'images\phasmoproducts\cardcrophood.jpg' %}" alt="Product3">
+                <h5 style="font-family: Arial, Helvetica, sans-serif;">Phasmophobia</h5>
+                <div class="description">
+                  <h4>Tarot Cards Crop-Hoodie</h4>
+                  <h4 style="margin-top: -20px; font-family: Arial, Helvetica, sans-serif; " class="price">$20.00 <button onclick="addToCart(this)">&#128722</button></h4>
+                </div>
+              </div>
+            </article>
+
+            <article class="product" data-id="8" data-name="Life's a revenant T-shirt" data-price="9.00">
+              <div class="uno">
+                <img src="{% static 'images\phasmoproducts\revshirt.jpg' %}" alt="Product6">
+                <h5 style="font-family: Arial, Helvetica, sans-serif;">Phasmophobia</h5>
+                <div class="description">
+                  <h4>Life's a revenant T-shirt</h4>
+                  <h4 style="margin-top: -20px; font-family: Arial, Helvetica, sans-serif; " class="price">$9.00 <button onclick="addToCart(this)">&#128722</button></h4>
+                </div>
+              </div>
+            </article>
+
+            <article class="product" data-id="9" data-name="White Handprints T-shirt" data-price="9.00">
+              <div class="uno">
+                <img src="{% static 'images\phasmoproducts\teescare.jpg' %}" alt="Product6">
+                <h5 style="font-family: Arial, Helvetica, sans-serif;">Phasmophobia</h5>
+                <div class="description">
+                  <h4>White Handprints T-shirt</h4>
+                  <h4 style="margin-top: -20px; font-family: Arial, Helvetica, sans-serif; " class="price">$9.00 <button onclick="addToCart(this)">&#128722</button></h4>
+                </div>
+              </div>
+            </article>
+
+            <article class="product" data-id="10" data-name="Navy-blue Emote Cap" data-price="27.00">
+              <div class="uno">
+                <img src="{% static 'images\phasmoproducts\dancecap.jpg' %}" alt="Product6">
+                <h5 style="font-family: Arial, Helvetica, sans-serif;">Phasmophobia</h5>
+                <div class="description">
+                  <h4>Navy-blue Emote Cap</h4>
+                  <h4 style="margin-top: -20px; font-family: Arial, Helvetica, sans-serif; " class="price">$27.00 <button onclick="addToCart(this)">&#128722</button></h4>
+                </div>
+              </div>
+            </article>
+
+            <article class="product" data-id="11" data-name="UV Hand-print Crop-Hoodie" data-price="14.50">
+              <div class="uno">
+                <img src="{% static 'images\phasmoproducts\handcrophood.jpg' %}" alt="Product6">
+                <h5 style="font-family: Arial, Helvetica, sans-serif;">Phasmophobia</h5>
+                <div class="description">
+                  <h4>UV Hand-print Crop-Hoodie</h4>
+                  <h4 style="margin-top: -20px; font-family: Arial, Helvetica, sans-serif; " class="price">$14.50 <button onclick="addToCart(this)">&#128722</button></h4>
+                </div>
+              </div>
+            </article>
+
+            <article class="product" data-id="12" data-name="UV Hand-print Hoodie" data-price="21.00">
+              <div class="uno"> 
+                <img src="{% static 'images\phasmoproducts\handhood.jpg' %}" alt="Product6">
+                <h5 style="font-family: Arial, Helvetica, sans-serif;">Phasmophobia</h5>
+                <div class="description">
+                  <h4>UV Hand-print Hoodie</h4>
+                  <h4 style="margin-top: -20px; font-family: Arial, Helvetica, sans-serif; " class="price">$21.00 <button onclick="addToCart(this)">&#128722</button></h4>
+                </div>
+              </div>
+            </article>
+
+              <!--valo merch-->
+            <article class="product" data-id="13" data-name="In awe Jett White T-shirt" data-price="9.50">
+              <div class="uno" >
+                <img src="{% static 'images\valoproducts\bruhwut.jpg'  %}" alt="Product2">
+                <h5 style="font-family: Arial, Helvetica, sans-serif;">Valorant</h5>
+                <div class="description">
+                  <h4>In awe Jett White T-shirt</h4>
+                  <h4 style="margin-top: -20px; font-family: Arial, Helvetica, sans-serif; " class="price">$9.50 <button onclick="addToCart(this)">&#128722</button></h4>
+                </div>
+              </div>
+            </article>
+ 
+            <article class="product" data-id="14" data-name="Black Gekko T-Shirt" data-price="9.50">
+              <div class="uno" >
+                <img src="{% static 'images\valoproducts\gekkotee.jpg'%}" alt="Product3">
+                <h5 style="font-family: Arial, Helvetica, sans-serif;">Valorant</h5>
+                <div class="description">
+                  <h4>Black Gekko T-Shirt</h4>
+                  <h4 style="margin-top: -20px; font-family: Arial, Helvetica, sans-serif; " class="price">$9.50 <button onclick="addToCart(this)">&#128722</button></h4>
+                </div>
+              </div>
+            </article>
+ 
+            <article class="product" data-id="15" data-name="Black beanie with Cat" data-price="13.50">
+              <div class="uno">
+                <img src="{% static 'images\valoproducts\cat.jpg'%}" alt="Product4">
+                <h5 style="font-family: Arial, Helvetica, sans-serif;">Valorant</h5>
+                <div class="description">
+                  <h4>Black beanie with Cat</h4>
+                  <h4 style="margin-top: -20px; font-family: Arial, Helvetica, sans-serif; " class="price">$13.50 <button onclick="addToCart(this)">&#128722</button></h4>
+                </div>
+              </div>
+            </article>
+ 
+            <article class="product" data-id="16" data-name="Cool white deadlock t-shirt" data-price="9.00">
+              <div class="uno">
+                <img src="{% static 'images\valoproducts\dloc.jpg' %}" alt="Product6">
+                <h5 style="font-family: Arial, Helvetica, sans-serif;">Valorant</h5>
+                <div class="description">
+                  <h4> Cool white deadlock t-shirt</h4>
+                  <h4 style="margin-top: -20px; font-family: Arial, Helvetica, sans-serif; " class="price">$9.00 <button onclick="addToCart(this)">&#128722</button></h4>
+                </div>
+              </div>
+            </article>
+
+            <article class="product" data-id="17" data-name="Black Cypher Phone Case" data-price="11.00">
+              <div class="uno" >
+                <img src="{% static  'images\valoproducts\cypherblack.jpg' %}" alt="Product7">
+                <h5 style="font-family: Arial, Helvetica, sans-serif;">Valorant</h5>
+                <div class="description">
+                  <h4>Black Cypher Phone Case</h4>
+                  <h4 style="margin-top: -20px; font-family: Arial, Helvetica, sans-serif; " class="price">$11.00 <button onclick="addToCart(this)">&#128722</button></h4>
+                </div>
+              </div>
+            </article>
+ 
+            <article class="product" data-id="18" data-name="White Cypher Phone Case" data-price="11.00">
+              <div class="uno" >
+                <img src="{% static 'images\valoproducts\cypherwhite.jpg' %}" alt="Product8">
+                <h5 style="font-family: Arial, Helvetica, sans-serif;">Valorant</h5>
+                <div class="description">
+                  <h4>White Cypher Phone Case</h4>
+                  <h4 style="margin-top: -20px; font-family: Arial, Helvetica, sans-serif; " class="price">$11.00 <button onclick="addToCart(this)">&#128722</button></h4>
+                </div>
+              </div>
+            </article>
+ 
+            <article class="product" data-id="19" data-name="Kill-joy Pixel Glasses" data-price="10.00">
+              <div class="uno">
+                <img src="{% static 'images\valoproducts\glass.jpg' %}" alt="Product3">
+                <h5 style="font-family: Arial, Helvetica, sans-serif;">Valorant</h5>
+                <div class="description">
+                  <h4>Kill-joy Pixel Glasses</h4>
+                  <h4 style="margin-top: -20px; font-family: Arial, Helvetica, sans-serif; " class="price">$10.00 <button onclick="addToCart(this)">&#128722</button></h4>
+                </div>
+              </div>
+            </article>
+ 
+            <article class="product" data-id="20" data-name="Cool White Omen T-Shirt" data-price="9.00">
+              <div class="uno">
+                <img src="{% static 'images\valoproducts\omentee.jpg' %}" alt="Product6">
+                <h5 style="font-family: Arial, Helvetica, sans-serif;">Valorant</h5>
+                <div class="description">
+                  <h4>Cool White Omen T-Shirt</h4>
+                  <h4 style="margin-top: -20px; font-family: Arial, Helvetica, sans-serif; " class="price">$9.00 <button onclick="addToCart(this)">&#128722</button></h4>
+                </div>
+              </div>
+            </article>
+ 
+            <article class="product" data-id="21" data-name="White Dabbing Penguin" data-price="9.50">
+              <div class="uno">
+                <img src="{% static 'images\valoproducts\pendab.jpg' %}" alt="Product6">
+                <h5 style="font-family: Arial, Helvetica, sans-serif;">Valorant</h5>
+                <div class="description">
+                  <h4>White Dabbing Penguin</h4>
+                  <h4 style="margin-top: -20px; font-family: Arial, Helvetica, sans-serif; " class="price">$9.50 <button onclick="addToCart(this)">&#128722</button></h4>
+                </div>
+              </div>
+            </article>
+ 
+            <article class="product" data-id="22" data-name="Cool Valorant Phone Stickers" data-price="4.00">
+              <div class="uno">
+                <img src="{% static 'images\valoproducts\stickers.jpg' %}" alt="Product6">
+                <h5 style="font-family: Arial, Helvetica, sans-serif;">Valorant</h5>
+                <div class="description">
+                  <h4>Cool Valorant Phone Stickers</h4>
+                  <h4 style="margin-top: -20px; font-family: Arial, Helvetica, sans-serif; " class="price">$4.00 <button onclick="addToCart(this)">&#128722</button></h4>
+                </div>
+              </div>
+            </article>
+ 
+            <article class="product" data-id="23" data-name="Yoru - bloodline water bottle" data-price="13.50">
+              <div class="uno">
+                <img src="{% static 'images\valoproducts\thirsty.jpg' %}" alt="Product6">
+                <h5 style="font-family: Arial, Helvetica, sans-serif;">Valorant</h5>
+                <div class="description">
+                  <h4>Yoru - bloodline water bottle</h4>
+                  <h4 style="margin-top: -20px; font-family: Arial, Helvetica, sans-serif; " class="price">$13.50 <button onclick="addToCart(this)">&#128722</button></h4>
+                </div>
+              </div>
+            </article>
+ 
+            <article class="product" data-id="24" data-name="Valo 23 agents poster" data-price="11.00">
+              <div class="uno"> 
+                <img src="{% static 'images\valoproducts\poster.jpg' %}" alt="Product6">
+                <h5 style="font-family: Arial, Helvetica, sans-serif;">Valorant</h5>
+                <div class="description">
+                  <h4>Valo 23 agents poster</h4>
+                  <h4 style="margin-top: -20px; font-family: Arial, Helvetica, sans-serif; " class="price">$11.00 <button onclick="addToCart(this)">&#128722</button></h4>
+                </div>
+              </div>
+            </article>
+
+
+          </div>
+        </div>
+    </section>
+
+    <!--NEWSLETTER-->
+    <section id="letter" style="font-family: Arial, Helvetica, sans-serif;margin-top: 20px;">
+        <div class="text">
+          <h4 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">SIGN UP FOR NEWSLETTERS!</h4>
+          <p>Get Email updates about our <span>latest products</span> and <span>game reviews</span>.</p>
+        </div>
+        <div class="form">
+          <input type="email" placeholder="Your Email ID">
+          <button onclick="submitForm()">Sign up</button>
+        </div>
+
+    </section>
+
+    <!--FOOTER-->
+    <footer>
+            <div id="footer"  style=" top: 3330px;">
+            <div class="content">
+                <div class="sections">
+                    <h3>About Us</h3>
+                    <p>Webbing -- a group of 3 university students</p>
+                </div>
+                <div class="section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="section">
+                    <h3>Contact Us</h3>
+                    <p><a>Email:</a> info@example.com<br>
+                        <a>Phone:</a> +1 (123) 456-7890</p>
+                </div>
+            </div>
+            <div class="bottom">
+                <p> Non-profitable and used as an educational experience</p>
+            </div>
+        </div>
+    </footer>
+    <script  src="{% static 'script\script.js' %}">
+  </body>
+</html>
+

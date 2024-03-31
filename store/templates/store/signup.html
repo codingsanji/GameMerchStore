@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta lang="en">
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    <title>Log In</title>
+    <link rel="stylesheet" href= "{% static 'css/stylesheet4.css' %}" type="text/css">
+</head>
+
+<style>
+/**FONTS**/
+@font-face {
+    font-family: Horror;
+    src: url("{% static '../Fonts/Special_Elite/SpecialElite-Regular.ttf' %}");
+}
+@font-face{
+    font-family: Economica;
+    src: url("{% static '../Fonts/Economica/Economica-Regular.ttf' %}");
+}
+@font-face {
+    font-family: PhasmoMain;
+    src: url("{% static '../Fonts/October_Crow/october-crow.ttf' %}")
+}
+@font-face {
+    font-family: Book;
+    src: url("{% static '../Fonts/lazy_dog/lazy_dog.ttf' %}")
+}
+</style>
+
+<body style="background-image: url('{% static "images/home/Ino.gif"%}')";>
+
+  <div class="wrapper">
+        <label class="whole">
+              <div class="front" style="margin-left:700px; width: 370px; margin-top:100px">
+                  <h1>SIGN UP</h1>
+
+                 <form class="form" action="" method="POST">
+                  {% csrf_token %}
+                    <input for="username" type="name" name="nameuser" placeholder="Name" class="input" required>
+                    <input for="email" type="email" name="email" placeholder="Email" class="input" required>
+                    <input for="password" type="password" name="passterm" placeholder="Password"  class="input" required>
+                    <a style="padding-bottom: 10px; padding-top: 7px; text-decoration: none; color: aliceblue; font-size: small;" href="/signin">Have an account? Log in!</a>
+                    <button class="button" style="margin-top: 20px;">Confirm</button>
+
+                    <style>
+                        .button:hover {
+                            background-color: #6d4caf;}
+                    </style>
+
+                 </form>
+
+              </div>
+
+           </div>
+        </label>
+    </div>   
+</div>
+
+</body>
+</html>

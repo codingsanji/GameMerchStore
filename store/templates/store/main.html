@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+{% load static %}<!--to load pics and css from static folder-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+        <title>Shop</title>
+        <link rel="stylesheet" type="text/css" href= "{% static 'css/style.css' %}" >
+    </head>
+
+    <style>
+        @font-face {
+            font-family: Btn;
+            src: url("{% static '../Fonts/Nova_Square/NovaSquare-Regular.ttf' %}")
+            
+        }
+        @font-face {
+            font-family: Topp;
+            src: url("{% static '../Fonts/Silkscreen/Silkscreen/Silkscreen-Regular.ttf' %}")
+        }
+        @font-face {    
+            font-family: Bam;
+            src: url("{% static '../Fonts/Black_Han_Sans/BlackHanSans-Regular.ttf' %}")
+        }
+        @font-face {
+            font-family: Bruh;
+            src: url("{% static '../Fonts/Glass_Antiqua/GlassAntiqua-Regular.ttf' %}")
+        }
+        @font-face {
+            font-family: Phasmo;
+            src: url("{% static '../Fonts/October_Crow/october-crow.ttf' %}")
+        }
+        @font-face {
+            font-family: Valo;
+            src: url("{% static '../Fonts/valorant/Valorant\ Font.ttf' %}")
+        }
+    </style>
+
+    <body style="font-family: Topp;">
+    <!--NAVIGATION BAR-->
+    <header>
+        <div class="logo" style="margin-left: 10px; margin-right: -250px;font-family: Topp;" onclick="window.location.href='index.html'">Webbing</div>
+        <nav>
+          <ul>
+            <li><a href="{% url 'main'%}">Home</a></li>
+            <li><a href="#games">Games</a></li>
+            <li><a href="{% url 'store'%}">Products</a></li>
+            <li><a href="#footer">Contact us</a></li>
+          </ul>
+        </nav>
+        <div class="btns" style="margin-right: 5px;">
+
+          <button id="loginBtn" style="background-color: #050115;position: absolute; margin-left: -90px;font-family: Topp;  "><a href="{% url 'signin'%}" style="text-decoration: none; text-align: center; margin-inline-start: -50px; color:#ffffff ; " >sIGN OUT </a></button>
+          
+          <a href="{% url 'store'%}"><img src="{% static 'images\home\cart.png' %}" style="width: 30px; height: 30px; position: absolute;margin-left: -5px;"></a>
+          <body class="dark-mode">
+            <button class="toggle-container" onclick="toggleMode()">
+              <div class="toggle-slider"></div>
+            </button>
+          </button>
+        </div>
+    </header>
+
+    <!--WELCOME-->
+    <div class="front">
+        <img style="height: 100%; width: 100%; margin-top: 200px; "src="{% static 'images\home\front.png'%}">
+        <strong><h3 style="font-family: Topp;">Welcome to our</h3></strong>
+        <h2 style="font-family: Bam;">PRODUCT PAGE</h2>
+        <a href="#one" style="font-family: Btn;">(Press here to explore our fresh collection of game merch) </a>
+      </div>
+
+      <!--ABOUT US-->
+      <div class="intro" id="games">
+        <img src="{% static 'images\home\introus.jpg'%}">
+        <h3>ABOUT US</h3>
+        <div class="para">
+          <strong><p>We are a team of 3 university students sharing a passion for web-development. We are dedicated to creating a user-friendly and visually appealing platform that meets the needs and expectations of its target audience.</p>
+          <p style="margin-top: -10px;">Our project revolves around 2 games at the moment (Valorant and Phasmophobia). To share about the game to new-comers and to share our products we have created and linked in a few guide pages. To view information about these games , you may press their respective section bars below. Do note that since this project was initally made as a university assignment , it is completely non-profitable!</p></strong>
+        </div>
+        <strong><h4>Happy browsing and thank you for checking our website out!</h4></strong>
+        <button><a href="">Phasmophobia</a></button>
+        <button style="margin-left: 20px;"><a href="">Valorant</a></button>
+      </div>
+
+      <!--FEATURED PRODUCTS-->
+      <section id="one">
+      <h2>Featured Products</h2>
+      <p>Limited edition Phasmophobia & Valorant merch</p>
+
+      <div class="product-container">
+        <div class="product">
+
+          <div class="uno" onclick="window.location.href='handmug.html'">
+              <img src="{% static 'images\phasmoproducts\memug.jpg' %}" alt="Product3">
+              <h5>Phasmophobia</h5>
+              <div class="description">
+                <h4>UV hand-print mug</h4>
+                <h4 style="margin-top: -20px; font-family: Arial, Helvetica, sans-serif; ">$21.00 <button style="background-color: rgb(44, 51, 104); margin-left: 200px; font-size: x-large;border-radius: 20%;"><a href="handmug.html" style="text-decoration: none;">&#128722</a></button></h4>
+              </div>
+            </div>
+
+          <div class="uno" style="border: 10px solid #8f0000;">
+            <img src="{% static 'images\valoproducts\gekkotee.jpg'%}" alt="Product2">
+            <h5>Valorant</h5>
+            <div class="description">
+              <h4>Gekko T-Shirt</h4>
+              <h4 style="margin-top: -20px; font-family: Arial, Helvetica, sans-serif; ">$9.50 <button style="background-color: rgb(44, 51, 104); margin-left: 200px; font-size: x-large;border-radius: 20%;"><a href="" style="text-decoration: none;">&#128722</a></button></h4>
+            </div>
+          </div>
+
+          <div class="uno" onclick="window.location.href='hoodie2.html'">
+            <img src="{% static 'images\phasmoproducts\cardcrophood.jpg' %}" alt="Product3">
+            <h5>Phasmophobia</h5>
+            <div class="description">
+              <h4>Cards Crop-Hoodie</h4>
+              <h4 style="margin-top: -20px; font-family: Arial, Helvetica, sans-serif; ">$20.00 <button style="background-color: rgb(44, 51, 104); margin-left: 200px; font-size: x-large;border-radius: 20%;"><a href="hoodie2.html" style="text-decoration: none;">&#128722</a></button></h4>
+            </div>
+          </div>
+
+          <div class="uno"  style="border: 10px solid #8f0000;">
+            <img src="{%static 'images\valoproducts\bruhwut.jpg'%}" alt="Product1">
+            <h5>Valorant</h5>
+            <div class="description">
+              <h4>Jett White T-shirt</h4>
+              <h4 style="margin-top: -20px; font-family: Arial, Helvetica, sans-serif; ">$9.50 <button style="background-color: rgb(44, 51, 104); margin-left: 200px; font-size: x-large;border-radius: 20%;"><a href="" style="text-decoration: none;">&#128722</a></button></h4>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      </section>
+
+      <!--NEWSLETTER-->
+      <section id="letter">
+      <div class="text">
+        <h4>SIGN UP FOR NEWSLETTERS!</h4>
+        <p>Get Email updates about our <span>latest products</span> and <span>game reviews</span>.</p>
+      </div>
+      <div class="form">
+        <input type="email" placeholder="Your Email ID">
+        <button>Sign up</button>
+      </div>
+      </section>
+
+
+      <!--FOOTER-->
+      <footer>
+      <div id="footer">
+        <div class="content">
+            <div class="section">
+                <h3>About Us</h3>
+                <p>Webbing -- a group of 3 university students</p>
+            </div>
+            <div class="section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="section">
+                <h3>Contact Us</h3>
+                <p><a>Email:</a> info@example.com<br>
+                   <a>Phone:</a> +1 (123) 456-7890</p>
+            </div>
+        </div>
+        <div class="bottom">
+            <p> Non-profitable and used as an educational experience</p>
+        </div>
+    </div>
+      </footer>
+
+      <script src="{% static 'script\script.js' %}" defer></script>
+  </body>
+</html>
