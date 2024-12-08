@@ -1,0 +1,24 @@
+.weapon_text {
+  color: #0f1923;
+  letter-spacing: 1px;
+  font-size: 50px;
+  text-align: center;
+  padding-left: 2rem;
+  font-family: "tungsten";
+}
+
+.guns {
+  background: rgb(56, 116, 133);
+  background: radial-gradient(
+    circle,
+    rgba(56, 116, 133, 1) 10%,
+    rgba(15, 57, 92, 1) 100%
+  );
+}
+
+.guns:hover {
+  transform: scale(1.1);
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  background-color: #ff4655;
+  font-weight: bold;
+}

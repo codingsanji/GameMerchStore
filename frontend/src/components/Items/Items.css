@@ -1,0 +1,10 @@
+/**Font access**/
+@font-face {
+  font-family: marga;
+  src: url(../assets/fonts/Margarine/Margarine-Regular.ttf);
+}
+
+.item:hover {
+  transform: scale(1.05);
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}

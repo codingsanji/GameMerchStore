@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@font-face {
+  font-family: phasmain;
+  src: url(./components/assets/fonts/October_Crow/october-crow.ttf);
+}
+
+@font-face {
+  font-family: valo;
+  src: url(./components/assets/fonts/Valorant/Valorant-Font.ttf);
+}
+
+@font-face {
+  font-family: tungsten;
+  src: url(./components/assets/fonts/Tungsten_Bold/Tungsten-Bold.ttf);
+}
+
+@font-face {
+  font-family: silk;
+  src: url(./components/assets/fonts/Silkscreen/Silkscreen-Regular.ttf);
+}
