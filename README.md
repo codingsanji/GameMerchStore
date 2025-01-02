@@ -2,7 +2,7 @@
 
 In my first year at university, I dived into the world of web development and built a **Game Merch Store** from scratch as part of my coursework. This online store is equipped with all the necessary features, such as a sign-in and log-in page, a homepage, a dedicated selling page showcasing Phasmophobia and Valorant merchandise along with their respective information pages.  
 - The frontend is crafted using **React.js** and **TailwindCSS**, making it modern, sleek, and fully responsive! 💻✨  
-- The backend however is..... ( A WORK IN PROGRESS!!! )
+- The backend however is done with **Express Js** , **Node Js** and **Mongodb** making it a MERN stack project. 
 
 ---
 
